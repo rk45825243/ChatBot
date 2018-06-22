@@ -1,0 +1,29 @@
+language: python
+
+python:
+  - '2.7'
+  - '3.6'
+
+os:
+  - linux
+  - windows
+
+addons:
+  apt_packages:
+    - pandoc
+
+install:
+  - pip install -r requirements.txt
+  - pip install -r dev-requirements.txt
+
+script:
+  - flake8
+  - nosetests
+
+deploy:
+  provider: pypi
+  user: $PYPI_USERNAME
+  password: $PYPI_PASSWORD
+  distributions: "sdist bdist_wheel"
+  on:
+      branch: master

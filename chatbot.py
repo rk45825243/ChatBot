@@ -2,7 +2,7 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 import os
 
-bot = ChatBot("Emma")
+bot = ChatBot("drake")  #changing chatbot name
 bot.set_trainer(ListTrainer)
 
 for files in os.listdir(
@@ -13,6 +13,6 @@ for files in os.listdir(
     bot.train(chats)
 
 while True:
-    request = input('You:')
-    response = bot.get_response(request)
-    print('Emma:', response)
+    user_request = input('you:')  #changing request variable to user_request
+    feedback = bot.get_feedback(user_request)  #changing variable response to feedback
+    print('drake:', feedback)  #changing name of chatbot entered and changing variable entered
